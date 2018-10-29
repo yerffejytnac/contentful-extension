@@ -3,23 +3,59 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "react-scripts": "2.0.5"
+    "polished": "^2.3.0",
+    "react": "^16.7.0-alpha",
+    "react-dom": "^16.7.0-alpha",
+    "react-scripts": "2.0.5",
+    "react-test-renderer": "^16.6.0",
+    "styled-components": "^4.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint:css": "stylelint './src/**/*.js'"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "no-restricted-imports": [
+        "error",
+        {
+          "paths": [
+            {
+              "name": "styled-components",
+              "message": "Please import from styled-components/macro."
+            }
+          ],
+          "patterns": [
+            "!styled-components/macro"
+          ]
+        }
+      ]
+    }
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "jest-enzyme": "^7.0.0",
+    "jest-styled-components": "^6.2.2",
+    "stylelint": "^9.7.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.5.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme-to-json": "^3.3.4"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  }
 }

@@ -1,9 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
+// import 'jest-styled-components';
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('<App />', () => {
+  it('should match existing snapshot', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders a headline with correct copy', () => {
+    const wrapper = shallow(<App />);
+    const headline = <h1>Application</h1>;
+    expect(wrapper).toContainReact(headline);
+  });
+
+  // it('renders with correct styles', () => {
+  //   const wrapper = shallow(<App />);
+  //   expect(wrapper).toHaveStyleRule('border', '1px solid red');
+  // });
 });
