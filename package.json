@@ -1,7 +1,11 @@
 {
-  "name": "application",
+  "name": "contentful-extension",
+  "description": "Contentful Extension",
+  "author": "Jeffrey Canty",
   "version": "0.0.0",
   "private": true,
+  "main": "build/index.html",
+  "homepage": "./",
   "dependencies": {
     "polished": "^2.3.0",
     "react": "^16.7.0-alpha",
@@ -11,11 +15,13 @@
     "styled-components": "^4.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:css": "stylelint './src/**/*.js'"
+    "lint:css": "stylelint './src/**/*.js'",
+    "prepare": "npm run build",
+    "version": "node write-manifest.js && git add extension.json"
   },
   "eslintConfig": {
     "extends": "react-app",

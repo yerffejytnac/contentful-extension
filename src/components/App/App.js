@@ -1,10 +1,12 @@
 import React from 'react';
-import { Root } from './styled';
+import { Root, Button } from './styled';
 
 const App = () => {
   return (
     <Root>
-      <h1>Application</h1>
+      <Button onClick={() => console.log('I was clicked!')}>
+        I am a button
+      </Button>
     </Root>
   );
 };

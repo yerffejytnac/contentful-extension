@@ -1,0 +1,12 @@
+{
+	"id": "contentful-extension",
+	"name": "Contentful Extension",
+	"src": "https://contentful-extension.casper.rocks",
+	"fieldTypes": [
+		"Symbol"
+	],
+	"sidebar": true,
+	"parameters": {
+		"instance": []
+	}
+}
